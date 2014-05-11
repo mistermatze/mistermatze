@@ -73,6 +73,10 @@ nnoremap <leader>ev :edit $MYVIMRC<cr>
 " Short command to reload the vimrc file
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
+" Short command to recursively generate a tags file starting from the current
+" working directory
+nnoremap <f5> :!ctags -R<cr>
+
 " Set the size of the command history
 set history=200
 
@@ -165,6 +169,9 @@ set textwidth=78
 " Enable automatic linebreaks at the textwidth border
 set formatoptions+=t
 
+" Set the default grep command
+set grepprg=grep\ -nr\ $*
+
 "-----------------------------------------------------------------------------
 " Plugin Configuration
 "-----------------------------------------------------------------------------
@@ -174,9 +181,6 @@ runtime macros/matchit.vim
 
 " Pathogen (Plugin installation management)
 call pathogen#infect()
-
-" Vim Latex
-set grepprg=grep\ -nH\ $*
 
 " Ensure that the filetype of empty tex files is latex instead of plaintext
 let g:tex_flavor='latex'
