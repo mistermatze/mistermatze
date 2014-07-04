@@ -19,9 +19,14 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
-" Set the background to light or dark, Vim will adjust some default colors
-" accordingly
+" Set the background to light or dark
+" Vim will adjust some default colors accordingly
 set background=light
+
+" Enable support for 256 colors when Gnome Terminal is used
+if $COLORTERM == 'gnome-terminal'
+  set t_Co=256
+endif
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern
@@ -39,10 +44,10 @@ set encoding=utf-8
 
 " Set the font, font weight and font size to be used in GVim
 " If Vim is used in a terminal the font depends on the terminal settings
-set guifont=DejaVu\ Sans\ Mono\ 10
+set guifont=DejaVu\ Sans\ Mono\ Bold\ 10
 
 " Set the default colorscheme
-colorscheme eclipse
+colorscheme Tomorrow
 
 " Disable the arrow keys
 nnoremap <up> <nop>
