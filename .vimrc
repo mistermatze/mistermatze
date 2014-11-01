@@ -85,8 +85,10 @@ nnoremap <f5> :!ctags -R<cr>
 " Set the size of the command history
 set history=200
 
-" Correct spelling errors
+" Automatically correct common spelling errors
 iabbrev teh the
+iabbrev fiel file
+iabbrev taks task
 
 " Enable downward searching from the current directory
 set path=**
@@ -173,6 +175,9 @@ set textwidth=78
 
 " Enable automatic linebreaks at the textwidth border
 set formatoptions+=t
+
+" Don't add an extra space after "." when joining lines
+set nojoinspaces
 
 " Set the default grep command
 set grepprg=grep\ -nr\ $*
